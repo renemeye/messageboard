@@ -41,14 +41,6 @@ html, body {
 }
 
 html {
-	background: #1c1e20;
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM1NTVhNWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWMxZTIwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-radial-gradient(center, ellipse cover,  rgba(85,90,95,1) 0%, rgba(28,30,32,1) 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(85,90,95,1)), color-stop(100%,rgba(28,30,32,1)));
-	background: -webkit-radial-gradient(center, ellipse cover,  rgba(85,90,95,1) 0%,rgba(28,30,32,1) 100%);
-	background: -o-radial-gradient(center, ellipse cover,  rgba(85,90,95,1) 0%,rgba(28,30,32,1) 100%);
-	background: -ms-radial-gradient(center, ellipse cover,  rgba(85,90,95,1) 0%,rgba(28,30,32,1) 100%);
-	background: radial-gradient(center, ellipse cover,  rgba(85,90,95,1) 0%,rgba(28,30,32,1) 100%);
 }
 
 /*********************************************
@@ -243,13 +235,12 @@ html {
 	}
 
 #reveal section img {
-	margin: 30px 0 0 0;
 	background: rgba(255,255,255,0.12);
-	border: 4px solid #eee;
 	
-	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-	   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-	        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+	position: relative;
+	left: -40px;
+	top: -40px;	
+	
 	
 	-webkit-transition: all .2s linear;
 	   -moz-transition: all .2s linear;
@@ -430,17 +421,20 @@ html {
  *********************************************/
 
 #reveal .slides {
+
 	position: absolute;
-	width: 900px;
-	height: 600px;
+	width: 75%;
+	height: 100%;
 	
-	left: 50%;
-	top: 50%;
-	margin-left: -450px;
-	margin-top: -320px;
-	padding: 20px 0px;
+	left: 0px;
+	top: 0px;
+	padding: 40px;
 	
 	text-align: center;
+	
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		    box-sizing: border-box;
 
 	-webkit-transition: -webkit-perspective .4s ease;
 	   -moz-transition: -moz-perspective .4s ease;
@@ -463,7 +457,7 @@ html {
 #reveal .slides>section>section {
 	display: none;
 	position: absolute;
-	width: 100%;
+	width: 97%;
 	min-height: 600px;
 
     z-index: 10;
@@ -486,6 +480,21 @@ html {
 	opacity: 1;
 }
 
+/*********************************************
+ * SIDEBAR
+ *********************************************/
+#reveal .sidebar {
+	position: absolute;
+	left: 75%;
+	top: 0px;
+	width: 25%;
+	height: 100%;
+
+	background: white;
+	color: black;
+
+	padding: 40px;
+}
 
 /*********************************************
  * DEFAULT TRANSITION
@@ -919,15 +928,16 @@ html {
 
 .state-background {
 	position: absolute;
-	width: 100%;
+	width: 75%;
 	height: 100%;
-	background: rgba( 0, 0, 0, 0 );
 
 	-webkit-transition: background 800ms ease;
 	   -moz-transition: background 800ms ease;
 	    -ms-transition: background 800ms ease;
 	     -o-transition: background 800ms ease;
 	        transition: background 800ms ease;
+
+	background: #1c1e20;
 }
 .alert .state-background {
 	background: rgba( 200, 50, 30, 0.6 );

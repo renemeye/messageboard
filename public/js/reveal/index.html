@@ -49,44 +49,16 @@
 						<i><small>- <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small></i>
 					</p>
 				</section>
-				
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,<br/>
-							try pressing <a href="#/2/1">down</a>.
-						</p>
-						<a href="#/2/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
+			
 				<section>
 					<h2>Holistic Overview</h2>
 					<p>
 						Press <strong>ESC</strong> to enter the slide overview!
 					</p>
+				</section>
+				
+				<section>
+					<img src="assets/img/test.png">
 				</section>
 
 				<section>
@@ -112,15 +84,6 @@
 					</ul>
 				</section>
 				
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
 				<section>
 					<section data-state="alert">
 						<h2>Global State</h2>
@@ -239,6 +202,11 @@ linkify( 'a' );
 				</section>
 			</div>
 
+
+			<div class="sidebar">
+				<p>Kalender</p>
+			</div>
+
 			<!-- The navigational controls UI -->
 			<aside class="controls">
 				<a class="left" href="#">&#x25C4;</a>
@@ -257,6 +225,8 @@ linkify( 'a' );
 		<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
 		<script src="lib/highlight.js"></script>
 		<script src="lib/classList.js"></script>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 		
 		<script>
 			// Parse the query string into a key/value object
@@ -276,12 +246,6 @@ linkify( 'a' );
 			} );
 
 			Reveal.initialize({
-				// Display controls in the bottom right corner
-				controls: true,
-
-				// Display a presentation progress bar
-				progress: true,
-
 				// If true; each slide will be pushed to the browser history
 				history: true,
 
@@ -291,17 +255,26 @@ linkify( 'a' );
 				// Flags if mouse wheel navigation should be enabled
 				mouseWheel: true,
 
-				// Apply a 3D roll to links on hover
-				rollingLinks: true,
-
 				// UI style
 				theme: query.theme || 'default', // default/neon
 
 				// Transition style
-				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+				transition: query.transition || 'concave' // default/cube/page/concave/linear(2d)
 			});
 
 			hljs.initHighlightingOnLoad();
+
+			$(function() {
+
+				var i = 0;	
+
+				function machWasOft() {
+					$('div.slides').append('<section><h2>Heads Up '+i+'</h2></section>');
+					i++;
+   				}
+				window.setInterval(machWasOft, 5000);
+			});
+
 		</script>
 
 	</body>
