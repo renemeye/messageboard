@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order: 1
+  slide: 
+  slide_set: 
+
+two:
+  order: 1
+  slide: 
+  slide_set: 
