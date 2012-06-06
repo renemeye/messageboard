@@ -779,6 +779,7 @@ var Reveal = (function(){
 		navigateRight: navigateRight,
 		navigateUp: navigateUp,
 		navigateDown: navigateDown,
+		slide: slide,
 
 		// Forward event binding to the reveal DOM element
 		addEventListener: function( type, listener, useCapture ) {
