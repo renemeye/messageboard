@@ -493,8 +493,40 @@ html {
 	background: white;
 	color: black;
 
+	   -moz-box-shadow: inset 5px -10px 10px #000000;
+	-webkit-box-shadow: inset 5px -10px 10px #000000;
+			box-shadow: inset 5px -10px 20px #676767;
+
 	padding: 40px;
 }
+
+#reveal .sidebar .logo {
+	margin-left: 25px;
+}
+
+#reveal .scroll ul {
+	position: relative;
+	width: 400px;
+	height: 900px;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	list-style: none;
+	margin-top: 20px;
+}
+
+#reveal .scroll li {
+	display: block;
+	list-style-type: none;
+	margin-bottom: 20px;
+}
+
+.fly{-webkit-perspective:400px;-moz-perspective:400px;-ms-perspective:400px;-o-perspective:400px;perspective:400px;-webkit-perspective-origin:50% 50%;-moz-perspective-origin:50% 50%;-ms-perspective-origin:50% 50%;-o-perspective-origin:50% 50%;perspective-origin:50% 50%}
+.fly li{-webkit-transition:all 600ms ease,opacity 300ms ease;-moz-transition:all 600ms ease;-ms-transition:all 600ms ease,opacity 300ms ease;-o-transition:all 600ms ease,opacity 300ms ease;transition:all 600ms ease,opacity 300ms ease;-webkit-transform-origin:50% 50% -50px;-moz-transform-origin:50% 50% -50px;-ms-transform-origin:50% 50% -50px;-o-transform-origin:50% 50% -50px;transform-origin:50% 50% -50px}
+.fly li.past{opacity:0;-webkit-transform:rotateX(180deg);-moz-transform:rotateX(180deg);-ms-transform:rotateX(180deg);-o-transform:rotateX(180deg);transform:rotateX(180deg)}
+.fly li.future{opacity:0;-webkit-transform:rotateX(-180deg);-moz-transform:rotateX(-180deg);-ms-transform:rotateX(-180deg);-o-transform:rotateX(-180deg);transform:rotateX(-180deg)}
+
 
 /*********************************************
  * DEFAULT TRANSITION
