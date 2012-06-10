@@ -34,78 +34,6 @@
 					<h1>Reveal.js</h1>
 					<h3 class="inverted">CSS 3D Presentations</h3>
 				</section>
-				
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is an easy to use, HTML based, presentation tool. You'll need a modern browser with 
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-					<p>
-						<i><small>- <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small></i>
-					</p>
-				</section>
-			
-				<section>
-					<h2>Holistic Overview</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview!
-					</p>
-				</section>
-				
-				<section>
-					<img src="assets/img/test.png">
-				</section>
-
-				<section>
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like:
-					</p>
-					<ul>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=cube">Cube</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=page">Page</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=concave">Concave</a></li>
-						<li><a href="http://lab.hakim.se/reveal-js/?transition=linear">Linear</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-				
-				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This let's you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#/7/1" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#/7/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#/7/0" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
 				<section>
 					<h2>Clever Quotes</h2>
 					<p>
@@ -117,14 +45,6 @@
 						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
 					</blockquote>
 				</section>
-				
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,<br/>
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
 
 				<section>
 					<h2>Fragmented Views</h2>
@@ -135,13 +55,6 @@
 						<li class="fragment"><em>of view</em></li>
 						<li class="fragment"><strong>fragments</strong></li>
 					</ol>
-				</section>
-				
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://hakim.se/experiments/html5/breakdom/" target="_blank">
-						<img width="320" height="412" src="https://s3.amazonaws.com/hakim-static/reveal-js/breakdom.png">
-					</a>
 				</section>
 				
 				<section>
@@ -237,7 +150,15 @@
 				var i = 0;	
 
 				function loopIt() {
-					$('div.slides').append('<section><h2>Heads Up '+i+'</h2></section>');
+					
+					$.ajax({
+						type: "GET",
+						url: "/slides/next",
+						success: function(antwort){
+							$('div.slides').append(antwort);
+						}
+					});
+					
 					Reveal.slide();
 					Reveal.navigateRight();
 					i++;
