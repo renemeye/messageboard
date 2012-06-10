@@ -560,6 +560,8 @@ var Reveal = (function(){
 			'indexh': indexh, 
 			'indexv': indexv
 		} );
+		
+		return true;
 	}
 
 	/**
