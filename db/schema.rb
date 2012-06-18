@@ -10,7 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522192726) do
+ActiveRecord::Schema.define(:version => 20120618004644) do
+
+  create_table "displays", :force => true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.integer  "slide_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "show_times", :force => true do |t|
+    t.integer  "priority"
+    t.time     "end_time"
+    t.time     "start_time"
+    t.integer  "slide_set_id"
+    t.integer  "display_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "slide_orders", :force => true do |t|
     t.integer  "order"
@@ -35,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20120522192726) do
     t.string   "title"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "content"
   end
 
 end

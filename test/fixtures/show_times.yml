@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  priority: 1
+  end_time: 2012-06-17 21:04:11
+  start_time: 2012-06-17 21:04:11
+  slide_set_id: 1
+  display_id: 1
+
+two:
+  priority: 1
+  end_time: 2012-06-17 21:04:11
+  start_time: 2012-06-17 21:04:11
+  slide_set_id: 1
+  display_id: 1

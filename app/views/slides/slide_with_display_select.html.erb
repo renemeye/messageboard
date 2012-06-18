@@ -1,0 +1,8 @@
+<section class="slide">
+	<h1>Select a Display</h1>
+	<ul>
+	<% @display_select.each do|display| %>
+		<li><a href="/<%=display.name %>"><%=display.name%></a> (<%=display.location %>)</li>
+	<% end %>
+	</ul>
+</section>
