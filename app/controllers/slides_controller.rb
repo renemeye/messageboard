@@ -23,5 +23,6 @@ class SlidesController < ApplicationController
 		Display.all.each do |display|
 			display_select.content += display.name+"<br>"
 		end
+		return display_select
 	end
 end
