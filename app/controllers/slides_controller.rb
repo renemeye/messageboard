@@ -1,7 +1,7 @@
 class SlidesController < ApplicationController
 	def next
 
-		currentDisplay_name = params[:id]
+		currentDisplay_name = params[:display]
 		if currentDisplay_name == nil
 			redirect_to :action => "slide_with_display_select"
 			return
