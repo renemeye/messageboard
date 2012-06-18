@@ -1,6 +1,6 @@
 class Display < ActiveRecord::Base
 	belongs_to :slide
-	has_many :show_times
+	has_many :show_times, :order => "'priority' DESC"
 
 	def turn_to_next_slide
 		current_slide_set = self.current_show_time.slide_set
@@ -16,10 +16,11 @@ class Display < ActiveRecord::Base
 	end
 
 	def current_show_time
-		self.show_times.find(:all, :order => "'priority' DESC").each do |show_time|
+		self.show_times.each do |show_time|
 			if Time.now.seconds_since_midnight.between? show_time.start_time.seconds_since_midnight, show_time.end_time.seconds_since_midnight
 				return show_time
 			end
 		end
+		return self.show_times.find(:all, :limit => 1).first
 	end
 end
