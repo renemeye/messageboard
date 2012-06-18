@@ -2,11 +2,15 @@ class SlidesController < ApplicationController
 	def next
 
 		currentDisplay_name = params[:id]
+		if currentDisplay_name == nil
+			redirect_to :action => "slide_with_display_select"
+			return
+		end;
+
 		currentDisplay = Display.where("name = '"+currentDisplay_name+"'").first
-		if currentDisplay != nil
-			print "Hat geklappt"	
-		else
-			@slide = self.slide_with_display_select
+		if currentDisplay == nil
+			redirect_to :action => "slide_with_display_select"
+			return
 		end;
 
     if @slide == nil
@@ -17,12 +21,12 @@ class SlidesController < ApplicationController
 	end
 
 	def slide_with_display_select
-		display_select = Slide.new
-		display_select.title = "Select a Display"
-		display_select.content = ""
+		display_select = Array.new
 		Display.all.each do |display|
-			display_select.content += display.name+"<br>"
+			display_select.append display
 		end
-		return display_select
+		@display_select = display_select
+
+		
 	end
 end
