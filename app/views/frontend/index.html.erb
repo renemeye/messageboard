@@ -43,11 +43,11 @@
 						<li class="fragment"><em>of view</em></li>
 						<li class="fragment"><strong>fragments</strong></li>
 					</ol>
-				</section>//-->
+				</section>>
 				
 				<section data-state="fullimage">
 					<img src="assets/img/test.png" alt="test" width="1440" height="1080" />
-				</section>
+				</section>//-->
 			</div>
 
 			<!-- The navigational controls UI -->
@@ -126,7 +126,7 @@
 					
 					$.ajax({
 						type: "GET",
-						url: "/slides/next",
+						url: "/slides/next/<%=(@display_name==nil)?"":@display_name%>",
 						success: function(antwort){
 							$('div.slides').append(antwort);
 						}
