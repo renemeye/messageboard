@@ -1,16 +1,27 @@
 class SlidesController < ApplicationController
 	def next
-		currentSlide_id = params[:id].to_i #later we will get that from the database
-		SlideSet.first.slides.each do |slide|
-			if slide.id == currentSlide_id
-				@slide = slide 
-				return
-			end
-		end
 
-		if @slide == nil
-			@slide = SlideSet.first.slides.first
-			@@current_slide_id = 42
+		currentDisplay_name = params[:id]
+		currentDisplay = Display.where("name = '"+currentDisplay_name+"'").first
+		if currentDisplay != nil
+			print "Hat geklappt"	
+		else
+			@slide = self.slide_with_display_select
+		end;
+
+    if @slide == nil
+      @slide = SlideSet.first.slides.first
+      @@current_slide_id = 42
+    end
+
+	end
+
+	def slide_with_display_select
+		display_select = Slide.new
+		display_select.title = "Select a Display"
+		display_select.content = ""
+		Display.all.each do |display|
+			display_select.content += display.name+"<br>"
 		end
 	end
 end
