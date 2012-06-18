@@ -13,10 +13,7 @@ class SlidesController < ApplicationController
 			return
 		end;
 
-    if @slide == nil
-      @slide = SlideSet.first.slides.first
-      @@current_slide_id = 42
-    end
+		@slide = currentDisplay.turn_to_next_slide
 
 	end
 
