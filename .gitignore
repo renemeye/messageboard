@@ -16,3 +16,6 @@
 
 # macify the gitignore...
 .DS_Store
+
+# Netbeans 
+/nbproject
