@@ -501,7 +501,16 @@ html {
 }
 
 #reveal .sidebar .logo {
-	margin-left: 25px;
+	margin-left: 10px;
+}
+
+#reveal .sidebar h3 {
+	display: block;
+	width: 100%;
+	background: blue;
+	color: white;
+	padding: 5px;
+	
 }
 
 #reveal .scroll ul {
