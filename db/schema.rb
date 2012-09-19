@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919005304) do
+ActiveRecord::Schema.define(:version => 20120919023059) do
+
+  create_table "display_events", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "display_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "display_events", ["display_id"], :name => "index_display_events_on_display_id"
+  add_index "display_events", ["event_id"], :name => "index_display_events_on_event_id"
 
   create_table "displays", :force => true do |t|
     t.string   "name"
@@ -21,6 +31,15 @@ ActiveRecord::Schema.define(:version => 20120919005304) do
     t.datetime "updated_at", :null => false
     t.string   "title"
     t.string   "image"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.string   "show_flags"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "show_times", :force => true do |t|

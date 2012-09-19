@@ -68,7 +68,7 @@
                           <% else %>
                             <img src="<%=@display_image%>" class="logo" alt="<%=@display_title%>">
                           <% end %>				
-		    	<div class="scroll">
+		    	<div class="scroll eventbar">
 		    		<ul class="fly">
 		    			<li><strong>Grundlagen Algorithmischer Geometrie</strong><br>11 Uhr - E037</li>
 		    			<li><strong>Eine Veranstaltung 2</strong><br>11 Uhr - E037</li>
@@ -126,7 +126,7 @@
 			});
 						
 			$(function() {
-				function loopIt() {
+				function slideLoop() {
 					
 					$.ajax({
 						type: "GET",
@@ -141,7 +141,21 @@
 					Reveal.slide();					
 
    				}
-				window.setInterval(loopIt, 5000);
+				window.setInterval(slideLoop, 5000);
+                                slideLoop();
+                                
+                                function eventLoop() {
+                                      $.ajax({
+                                              type: "GET",
+                                              url: "/events/list/<%=(@display_name==nil)?"":@display_name%>",
+                                              context: $('.eventbar')
+                                      }).done(function(rtn) {
+                                              $(this).html(rtn);
+                                      });
+                                }
+                                window.setInterval(eventLoop, 60000);
+                                eventLoop();
+                                
 			});
 
 		</script>

@@ -1,0 +1,9 @@
+<ul class="fly">
+  <% @display_events.each do|display_events| %>
+    <li class="event">
+      <strong><%=display_events.event.title%></strong>
+      <br />
+      <%=display_events.event.start_time.to_formatted_s(:time)%>
+    </li>
+  <% end %>
+</ul>
