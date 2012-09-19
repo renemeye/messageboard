@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>reveal.js</title>
+		<title><%=(@display_title==nil)?"":@display_title%></title>
 
 		<meta name="description" content="An easy to use CSS 3D slideshow tool for quickly creating good looking HTML presentations.">
 		<meta name="author" content="Hakim El Hattab">
@@ -63,7 +63,11 @@
 			
 			
 			<div class="sidebar">
-				<img src="http://www.cs.uni-magdeburg.de/skin/vorlage/pics/logos/logo_inf_fak.png" class="logo">
+                          <% if @display_image == nil  %>
+                            <img src="http://www.cs.uni-magdeburg.de/skin/vorlage/pics/logos/logo_inf_fak.png" class="logo">
+                          <% else %>
+                            <img src="<%=@display_image%>" class="logo" alt="<%=@display_title%>">
+                          <% end %>				
 		    	<div class="scroll">
 		    		<ul class="fly">
 		    			<li><strong>Grundlagen Algorithmischer Geometrie</strong><br>11 Uhr - E037</li>
@@ -129,11 +133,12 @@
 						url: "/slides/next/<%=(@display_name==nil)?"":@display_name%>",
 						success: function(antwort){
 							$('div.slides').append(antwort);
+                                                        
+                                                        Reveal.navigateRight();
 						}
 					});
 					
-					Reveal.slide();
-					//Reveal.navigateRight();
+					Reveal.slide();					
 
    				}
 				window.setInterval(loopIt, 5000);

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618004644) do
+ActiveRecord::Schema.define(:version => 20120919005304) do
 
   create_table "displays", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20120618004644) do
     t.integer  "slide_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "title"
+    t.string   "image"
   end
 
   create_table "show_times", :force => true do |t|

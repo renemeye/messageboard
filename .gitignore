@@ -19,3 +19,6 @@
 
 # Netbeans 
 /nbproject
+
+# Ignore our static folder
+/static

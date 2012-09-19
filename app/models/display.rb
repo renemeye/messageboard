@@ -1,6 +1,7 @@
 class Display < ActiveRecord::Base
 	belongs_to :slide
 	has_many :show_times, :order => "'priority' DESC"
+  attr_accessible :title, :image
 
 	def turn_to_next_slide
 		current_slide_set = self.current_show_time.slide_set
