@@ -4,6 +4,8 @@
       <strong><%=display_events.event.title%></strong>
       <br />
       <%=display_events.event.start_time.to_formatted_s(:time)%>
+      -
+      <%=display_events.event.end_time.to_formatted_s(:time)%>
     </li>
   <% end %>
 </ul>
