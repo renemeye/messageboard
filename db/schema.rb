@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919023059) do
+ActiveRecord::Schema.define(:version => 20120919043226) do
 
   create_table "display_events", :force => true do |t|
     t.integer  "event_id"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20120919023059) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string   "show_flags"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -71,11 +71,12 @@ ActiveRecord::Schema.define(:version => 20120919023059) do
 
   create_table "slides", :force => true do |t|
     t.string   "picture_file"
-    t.string   "origninal_file"
+    t.string   "original_file"
     t.string   "title"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "content"
+    t.string   "content_file"
   end
 
 end
