@@ -1,5 +1,7 @@
 class OverviewController < ApplicationController
   
+  Time::DATE_FORMATS[:time_with_zone] = lambda { |time| time.localtime.strftime("%H:%M %Z") } 
+  
   def show
     @display_name = params[:display]
     

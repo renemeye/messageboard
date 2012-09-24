@@ -23,13 +23,13 @@ class Display < ActiveRecord::Base
 		self.events.each do |event|
       if Time.now < event.end_time and Time.now > event.start_time    
         events.append event
-      elsif Time.now < event.end_time and event.show_flags == "before_day" and Time.now > event.start_time.at_beginning_of_day
+      elsif Time.now < event.end_time and event.show_flags == "before_day" and Time.now.localtime > event.start_time.localtime.at_beginning_of_day
         events.append event
-      elsif Time.now < event.end_time and event.show_flags == "before_week" and Time.now > event.start_time.at_beginning_of_week
+      elsif Time.now < event.end_time and event.show_flags == "before_week" and Time.now.localtime > event.start_time.localtime.at_beginning_of_week
         events.append event
-      elsif event.show_flags == "full_day" and Time.now > event.start_time.at_beginning_of_day and Time.now < event.end_time.midnight
+      elsif event.show_flags == "full_day" and Time.now.localtime > event.start_time.localtime.at_beginning_of_day and Time.now.localtime < event.end_time.localtime.midnight
         events.append event
-      elsif event.show_flags == "full_week" and Time.now > event.start_time.at_beginning_of_week and Time.now < event.end_time.at_end_of_week.midnight
+      elsif event.show_flags == "full_week" and Time.now.localtime > event.start_time.localtime.at_beginning_of_week and Time.now.localtime < event.end_time.localtime.at_end_of_week.midnight
         events.append event
       end
     end
