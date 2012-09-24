@@ -16,6 +16,16 @@ class SlidesController < ApplicationController
 		@slide = currentDisplay.turn_to_next_slide
 
 	end
+  
+  def show
+    
+    # display is just the name of the first arg
+    slide_id = params[:display].to_i
+    
+    @slide = Slide.where(:id=>slide_id).first
+    render "next"
+    
+  end
 
 	def slide_with_display_select
 		display_select = Array.new

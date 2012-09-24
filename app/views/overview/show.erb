@@ -1,0 +1,19 @@
+<h1><%=@display.title%></h1>
+
+Id: <%=@display.id%>
+
+<% @display.show_times.each do |show_time| %>
+
+<p>
+  Von: <%=show_time.start_time.to_formatted_s(:time)%>
+  Bis: <%=show_time.end_time.to_formatted_s(:time)%>
+  SlideSet: <%=show_time.slide_set_id%>
+  <div class="scroll_horizontal">    
+    <% slide_set = SlideSet.where(:id=>show_time.slide_set_id).first %>
+    <% slide_set.slides.each do |slide| %>    
+      <iframe title="<%=slide.id%>" class="scroll_element" src="/slides/show/<%=slide.id%>"></iframe>      
+    <% end %>
+  </div>
+</p>
+
+<% end %>
