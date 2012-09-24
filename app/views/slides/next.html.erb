@@ -3,8 +3,10 @@
 	<h1><%=@slide.title %></h1>
         
         <% if @slide.content_file != nil %>
-          <%=File.read('static/slides/' + @slide.content_file).html_safe%>
+          <%=File.read(File.join(Rails.root, "static", "slides", @slide.content_file + '.html')).html_safe%>
+        <% elsif @slide.picture_file != nil %>
+          <img src="<%= @slide.picture_file%>" alt="<%=@slide.title %>" width="100%" />
         <% else %>
-	<p><%=@slide.content %></p>
+	  <p><%=@slide.content %></p>
         <% end %>
 </section>
