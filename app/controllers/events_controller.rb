@@ -8,7 +8,7 @@ class EventsController < ApplicationController
       return
 		end;
     
-    @display_events = display.display_events
+    @display_events = display.events
 	end
   
   def empty
