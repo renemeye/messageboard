@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 		if display == nil
       redirect_to :action => "empty"
       return
-		end;
+		end;    
     
     @display_events = display.current_events()
 	end
