@@ -15,3 +15,19 @@ Installation
 ============
 
 bundle install
+rake db:create
+
+Upgrade
+============
+
+rake db:migrate
+
+Starting
+============
+
+rails server
+
+Backend
+============
+
+rails console
