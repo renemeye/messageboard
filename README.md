@@ -6,16 +6,16 @@ An easy to use Software to display news, advertisements and other Information on
 Requirments
 ============
 
-rubygems
-libsqlite3-dev
-nodejs 
-rake
+* rubygems
+* libsqlite3-dev
+* nodejs 
+* rake
 
 Installation
 ============
 
-bundle install
-rake db:create
+* bundle install
+* rake db:create
 
 Upgrade
 ============
