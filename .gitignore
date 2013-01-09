@@ -16,3 +16,9 @@
 
 # macify the gitignore...
 .DS_Store
+
+# Netbeans 
+/nbproject
+
+# Ignore our static folder
+/static

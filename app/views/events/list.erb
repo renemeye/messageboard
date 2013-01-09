@@ -1,0 +1,17 @@
+<ul class="fly">
+  <% @display_events.each do|event| %>
+    <li class="event">
+      <strong><%=event.title%></strong>
+      <br />
+      <% if event.room != nil %>
+      <i>
+        &nbsp;&nbsp;<%=event.room%>
+      </i>
+      <% else %>
+        <%=event.start_time.localtime.to_formatted_s(:time)%>
+        -
+        <%=event.end_time.localtime.to_formatted_s(:time)%>
+      <% end %>
+    </li>
+  <% end %>
+</ul> 

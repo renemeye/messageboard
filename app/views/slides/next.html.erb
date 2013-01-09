@@ -1,5 +1,14 @@
 
-<section class="slide">
+<section class="slide" <% if @slide.picture_file != nil %>data-state="fullimage"<% end %>>
+        <% if @slide.title != nil %>
 	<h1><%=@slide.title %></h1>
+        <% end %>
+        
+        <% if @slide.content_file != nil %>
+          <%=File.read(File.join(Rails.root, "static", "slides", @slide.content_file + '.html')).html_safe%>
+        <% elsif @slide.picture_file != nil %>
+          <img src="<%= @slide.picture_file%>" alt="<%=@slide.title %>" width="100%" />
+        <% else %>
 	<p><%=@slide.content %></p>
+        <% end %>
 </section>

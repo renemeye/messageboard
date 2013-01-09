@@ -1,6 +1,9 @@
 class Display < ActiveRecord::Base
 	belongs_to :slide
-	has_many :show_times, :order => "'priority' DESC"
+	has_many :show_times, :order => '"priority" DESC'
+  has_many :display_events
+  has_many :events, :through => :display_events, :order => '"start_time" ASC'
+  attr_accessible :title, :image
 
 	def turn_to_next_slide
 		current_slide_set = self.current_show_time.slide_set
@@ -14,6 +17,24 @@ class Display < ActiveRecord::Base
 		self.save
 		return self.slide
 	end
+  
+  def current_events
+    events = Array.new
+		self.events.each do |event|
+      if Time.now < event.end_time and Time.now > event.start_time    
+        events.append event
+      elsif Time.now < event.end_time and event.show_flags == "before_day" and Time.now.localtime > event.start_time.localtime.at_beginning_of_day
+        events.append event
+      elsif Time.now < event.end_time and event.show_flags == "before_week" and Time.now.localtime > event.start_time.localtime.at_beginning_of_week
+        events.append event
+      elsif event.show_flags == "full_day" and Time.now.localtime > event.start_time.localtime.at_beginning_of_day and Time.now.localtime < event.end_time.localtime.midnight
+        events.append event
+      elsif event.show_flags == "full_week" and Time.now.localtime > event.start_time.localtime.at_beginning_of_week and Time.now.localtime < event.end_time.localtime.at_end_of_week.midnight
+        events.append event
+      end
+    end
+    return events
+  end
 
 	def current_show_time
 		self.show_times.each do |show_time|

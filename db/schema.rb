@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,12 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618004644) do
+ActiveRecord::Schema.define(:version => 20120919043226) do
+
+  create_table "display_events", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "display_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "display_events", ["display_id"], :name => "index_display_events_on_display_id"
+  add_index "display_events", ["event_id"], :name => "index_display_events_on_event_id"
 
   create_table "displays", :force => true do |t|
     t.string   "name"
     t.string   "location"
     t.integer  "slide_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "title"
+    t.string   "image"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "show_flags"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -49,11 +71,12 @@ ActiveRecord::Schema.define(:version => 20120618004644) do
 
   create_table "slides", :force => true do |t|
     t.string   "picture_file"
-    t.string   "origninal_file"
+    t.string   "original_file"
     t.string   "title"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "content"
+    t.string   "content_file"
   end
 
 end
